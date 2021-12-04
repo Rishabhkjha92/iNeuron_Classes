@@ -1,0 +1,40 @@
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+
+import time
+time.sleep(2)
+
+driver = webdriver.Chrome("D:\SeleniumDrivers\chromedriver.exe")
+driver.get("https://ems.dotsquares.com/Login")
+
+#assert "https://ems.dotsquares.com/Login" in driver.title
+#Email
+driver.find_element_by_id("Email").send_keys("rishabhkant.jha@dotsquares.com")
+#Password
+driver.find_element_by_id("Password").send_keys("dots@123")
+#time.sleep(2)
+#Button
+driver.find_element_by_xpath('//*[@id="form1"]/div/div[2]/div[2]/div[4]/div[2]').click()
+#time.sleep(5)
+
+#Project Status
+#driver.find_element_by_xpath('//*[@id="nav"]/li[7]').click()
+driver.find_element_by_xpath('//*[@id="btnprojectStatus"]').click()
+
+#Select ADDITIONAL SUPPORT Radio button
+driver.find_element_by_xpath('//*[@id="rdo_additional"]').click()
+
+
+#Click on this and select KD Singh
+time.sleep(2)
+driver.find_element_by_xpath("//div[@id='cbProjectsListAdditional_chosen']/a/span").click()
+time.sleep(2)
+driver.find_element_by_xpath("//*[@id='cbProjectsListAdditional_chosen']/div/ul/li[42]").click()
+
+#Click the GO
+time.sleep(2)
+driver.find_element_by_xpath('//*[@id="pbGo"]').click()
+
+#Logout
+time.sleep(2)
+driver.find_element_by_class_name("logout").click()
